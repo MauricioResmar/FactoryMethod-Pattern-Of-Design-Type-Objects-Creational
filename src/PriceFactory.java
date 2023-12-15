@@ -21,7 +21,7 @@ public class PriceFactory {
         }
     }
 
-    public double getPrecio() {
+    public double getPrice() {
         return price.getPrice();
     }
 }

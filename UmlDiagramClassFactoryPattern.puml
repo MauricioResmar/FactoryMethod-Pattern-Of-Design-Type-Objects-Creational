@@ -1,0 +1,28 @@
+@startuml
+class Main {
++ {static} void main(String[])
+}
+class PriceEur {
++ double getPrice()
+}
+class PriceUsd {
++ double getPrice()
+}
+class PriceGbp {
++ double getPrice()
+}
+interface Price {
+~ double getPrice()
+}
+class PriceFactory {
+~ Price price
+- <<Create>> PriceFactory()
++ <<Create>> PriceFactory(String)
++ double getPrice()
+}
+
+
+Price <|.. PriceEur
+Price <|.. PriceUsd
+Price <|.. PriceGbp
+@enduml

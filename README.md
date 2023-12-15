@@ -58,6 +58,53 @@ Advantages of the Factory Method Pattern:
    Allows subclasses to decide which concrete classes to instantiate, delegating the 
    responsibility of object creation to subclasses.
 
+UML Diagram Class for this project:
+
+      +----------------------------------------+
+      |              Class  Main               |
+      +----------------------------------------+
+      |    + {static} void main(String[])      |
+      +----------------------------------------+
+
+      +----------------------------------------+
+      |           <Interface> Price            |
+      |----------------------------------------|
+      | ~ double getPrice()                    |
+      +----------------------------------------+
+      |     ^     ^    ^
+      |     |     |    |
+      |     |     |    |             +--------------------+
+      |     |     |    |             |   Class PriceEur   |
+      |     |     |    +-------------|--------------------|
+      |     |     |                  | + double getPrice()|
+      |     |     |                  +--------------------+
+      |     |     |
+      |     |     |
+      |     |     |
+      |     |     |              +--------------------+
+      |     |     |              |   Class PriceUsd   |
+      |     |     +--------------|--------------------|
+      |     |                    | + double getPrice()|
+      |     |                    +--------------------+
+      |     |
+      |     |    
+      |     |              +--------------------+
+      |     |              |   Class PriceGbp   |
+      |     +--------------|--------------------|
+      |                    | + double getPrice()|
+      |                    +--------------------+
+      |
+      |
+      |     +----------------------------------------+
+      |     |          Class PriceFactory            |
+      |     |----------------------------------------|
+      +--<> | ~ Price price                          |
+            | - <<Create>> PriceFactory()            |
+            | + <<Create>> PriceFactory(String)      |
+            | + double getPrice()                    |
+            +----------------------------------------+
+
+
 Java Code Example:
 
     // Product
@@ -158,14 +205,14 @@ enhances the flexibility and maintainability of the codebase.
 
 
 ------------------------------------------------------------------------
-In the case of a graphical user interface or console generator, we have a Class that is going to start
-a graphical interface or a text interface, because there are clients who want it to be displayed in one
-way and others want it in another. That is to say that we have a Class that has an interface and a 
-business or application logic and then in the derived Classes the one that starts with graphics
-new vistaGrafica() while the other will do newvistaTexto() and then I already have two systems, 
-the business It is common to both and everything is perfect and the graphic launcher will be in 
-the graphic package and the text launcher will be in the text package. I can deploy one or both 
-to a client, the point is that I have flexibility...
+In the case of a graphical user interface or console generator, we have a Class that is going to 
+start a graphical interface or a text interface, because there are clients who want it to be 
+displayed in one way and others want it in another. That is to say that we have a Class that has 
+an interface and a business or application logic and then in the derived Classes the one that 
+starts with graphics new vistaGrafica() while the other will do newvistaTexto() and then I already
+have two systems, the business It is common to both and everything is perfect and the graphic 
+launcher will be in the graphic package and the text launcher will be in the text package. I can 
+deploy one or both to a client, the point is that I have flexibility...
 
 
 
